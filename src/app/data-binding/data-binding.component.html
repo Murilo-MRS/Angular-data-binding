@@ -1,0 +1,36 @@
+<section>
+  <!--   <article>
+    <h3>Interpolação</h3>
+    <p>String renderizada com Interpolação: {{ url }}</p>
+    <p>Resultado da soma: {{ 1 + 1 }}</p>
+    <p>Resultado da soma: {{ 1 + 1 + getValor() }}</p>
+    <p>
+      Curso de Angular e gosto do curso: {{ cursoAngular && getCurtirCurso() }}
+    </p>
+  </article>
+
+  <article>
+    <h3>Interpolação</h3>
+    <img src="{{ urlImage }}" />
+    OU
+    <h3>Property Binding</h3>
+    <img [src]="urlImage" />
+  </article> -->
+  <article>
+    <h3>Class e Style binding</h3>
+    <div>
+      Selecione uma classe:
+      <select #classe (change)="(0)">
+        <option value="alert-success">Sucesso</option>
+        <option value="alert-success">Info</option>
+        <option value="alert-success">Alerta</option>
+        <option value="alert-success">Erro</option>
+      </select>
+      <br /><br />
+      <div class="alert alert-success" role="alert">...</div>
+      <div class="alert alert-info" role="alert">...</div>
+      <div class="alert alert-warning" role="alert">...</div>
+      <div class="alert alert-danger" role="alert">...</div>
+    </div>
+  </article>
+</section>
