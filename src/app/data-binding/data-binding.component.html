@@ -10,27 +10,65 @@
   </article>
 
   <article>
-    <h3>Interpolação</h3>
-    <img src="{{ urlImage }}" />
-    OU
-    <h3>Property Binding</h3>
-    <img [src]="urlImage" />
-  </article> -->
-  <article>
-    <h3>Class e Style binding</h3>
-    <div>
-      Selecione uma classe:
-      <select #classe (change)="(0)">
+      <h3>Interpolação</h3>
+      <img src="{{ urlImage }}" />
+      OU
+      <h3>Property Binding</h3>
+      <img [src]="urlImage" />
+    </article> -->
+    <article>
+        <h3>Class e Style binding</h3>
+        <div>
+            Selecione uma classe:
+            <!-- variavel local no template  #classe com evento (change)="(0)"-->
+            <select #classe (change)="(0)">
         <option value="alert-success">Sucesso</option>
-        <option value="alert-success">Info</option>
-        <option value="alert-success">Alerta</option>
-        <option value="alert-success">Erro</option>
-      </select>
-      <br /><br />
-      <div class="alert alert-success" role="alert">...</div>
-      <div class="alert alert-info" role="alert">...</div>
-      <div class="alert alert-warning" role="alert">...</div>
-      <div class="alert alert-danger" role="alert">...</div>
+        <option value="alert-info">Info</option>
+        <option value="alert-warning">Alerta</option>
+        <option value="alert-danger">Erro</option>
+    </select>
+    <br /><br />
+    <!-- queremos aplicar uma [class.alert-success] um verifica onde   "classe.value === 'alert-success'" -->
+    <!-- outra forma de class biding -->
+    <div class="alert {{ classe.value }} " role="alert">
+      TEXTO COLORIDO CONFORME VALOR DO COMBOBOX.
+    </div>
+    <div
+    class="alert"
+    role="alert"
+    [class.alert-success]="classe.value === 'alert-success'"
+    >
+    Sucesso
+      </div>
+      <div
+        class="alert"
+        role="alert"
+        [class.alert-info]="classe.value === 'alert-info'"
+      >
+        Info
+      </div>
+      <div
+        class="alert"
+        role="alert"
+        [class.alert-warning]="classe.value === 'alert-warning'"
+      >
+        Alerta
+      </div>
+      <div
+        class="alert"
+        role="alert"
+        [class.alert-danger]="classe.value === 'alert-danger'"
+      >
+        Erro
+      </div>
+      <h2>STYLE BIDING</h2>
+      <div
+        class="alert alert-danger"
+        role="alert"
+        [style.display]="classe.value === 'alert-danger' ? 'block' : 'none'"
+      >
+        ESSE TEXTO SO APARECE EM CASO DE ERRO.
+      </div>
     </div>
   </article>
 </section>
