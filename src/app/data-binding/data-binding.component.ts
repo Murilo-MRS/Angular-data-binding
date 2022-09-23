@@ -10,6 +10,16 @@ export class DataBindingComponent implements OnInit {
   url: string = 'http://loiane.com';
   cursoAngular: boolean = true;
   urlImage: string = 'http://github.com/Murilo-MRS.png';
+  valorAtual: string = '';
+  valorSalvo: string = '';
+  isMouseOver: boolean = false;
+  nome : string = '';
+
+  pessoa : any = {
+    nome: 'def',
+    idade: 20
+  }
+
 
   getValor() {
     return 1;
@@ -17,6 +27,24 @@ export class DataBindingComponent implements OnInit {
 
   getCurtirCurso() {
     return true;
+  }
+
+  botaoClicado(){
+    alert('Botão Clicado');
+  }
+// KeyboardEvent é tipo do evento
+  onKeyup(event:KeyboardEvent){
+    console.log()
+    this.valorAtual = (<HTMLInputElement>event.target).value;
+  }
+
+  salvarValor(valor: string){
+    
+    this.valorSalvo = valor;
+  }
+
+  onMouseOverOut(){
+    this.isMouseOver = !this.isMouseOver;
   }
 
   constructor() {}

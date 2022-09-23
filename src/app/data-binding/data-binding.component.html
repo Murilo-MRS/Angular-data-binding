@@ -1,5 +1,5 @@
 <section>
-  <!--   <article>
+  <article>
     <h3>Interpolação</h3>
     <p>String renderizada com Interpolação: {{ url }}</p>
     <p>Resultado da soma: {{ 1 + 1 }}</p>
@@ -10,35 +10,35 @@
   </article>
 
   <article>
-      <h3>Interpolação</h3>
-      <img src="{{ urlImage }}" />
-      OU
-      <h3>Property Binding</h3>
-      <img [src]="urlImage" />
-    </article> -->
-    <article>
-        <h3>Class e Style binding</h3>
-        <div>
-            Selecione uma classe:
-            <!-- variavel local no template  #classe com evento (change)="(0)"-->
-            <select #classe (change)="(0)">
+    <h3>Interpolação</h3>
+    <img src="{{ urlImage }}" />
+    OU
+    <h3>Property Binding</h3>
+    <img [src]="urlImage" />
+  </article>
+  <article>
+    <h3>Class e Style binding</h3>
+    <div>
+      Selecione uma classe: variavel local no template #classe com evento
+      (change)="(0)"
+      <select #classe (change)="(0)">
         <option value="alert-success">Sucesso</option>
         <option value="alert-info">Info</option>
         <option value="alert-warning">Alerta</option>
         <option value="alert-danger">Erro</option>
-    </select>
-    <br /><br />
-    <!-- queremos aplicar uma [class.alert-success] um verifica onde   "classe.value === 'alert-success'" -->
-    <!-- outra forma de class biding -->
-    <div class="alert {{ classe.value }} " role="alert">
-      TEXTO COLORIDO CONFORME VALOR DO COMBOBOX.
-    </div>
-    <div
-    class="alert"
-    role="alert"
-    [class.alert-success]="classe.value === 'alert-success'"
-    >
-    Sucesso
+      </select>
+      <br /><br />
+      queremos aplicar uma [class.alert-success] um verifica onde "classe.value
+      === 'alert-success'" outra forma de class biding
+      <div class="alert {{ classe.value }} " role="alert">
+        TEXTO COLORIDO CONFORME VALOR DO COMBOBOX.
+      </div>
+      <div
+        class="alert"
+        role="alert"
+        [class.alert-success]="classe.value === 'alert-success'"
+      >
+        Sucesso
       </div>
       <div
         class="alert"
@@ -69,6 +69,62 @@
       >
         ESSE TEXTO SO APARECE EM CASO DE ERRO.
       </div>
+    </div>
+  </article>
+</section>
+<section class="event-binding">
+  <article>
+    <h3>EVENT BINDING</h3>
+    <div>
+      <button class="btn btn-primary" (click)="botaoClicado()">ENVIAR</button>
+      <br /><br />
+      <!-- #nomeVariavel declara variavel local e podemos substituir event.target -->
+      <input
+        type="text"
+        (keyup)="onKeyup($event)"
+        (keyup.enter)="salvarValor(campoInput.value)"
+        (blur)="salvarValor(campoInput.value)"
+        #campoInput
+      />
+      <p>Valor Atual: {{ valorAtual }}</p>
+      <p>Valor Salvo: {{ valorSalvo }}</p>
+
+      <br />
+      <span
+        (mouseover)="onMouseOverOut()"
+        (mouseout)="onMouseOverOut()"
+        [class.highlight]="isMouseOver"
+        >PASSE O MOUSE SOBRE MIM</span
+      >
+    </div>
+  </article>
+</section>
+
+<section class="two-way-binding">
+  <article>
+    <h3>TWO WAY BINDING</h3>
+    <div>
+      <input
+        type="text"
+        [value]="nome"
+        (input)="nome = eventTarget.value"
+        #eventTarget
+      />
+
+      <input
+        type="text"
+        [ngModel]="nome"
+        (ngModelChange)="nome = $event"
+        #eventTarget
+      />
+
+      <input type="text" [(ngModel)]="nome" />
+      <p>DIGITOU: {{ nome }}</p>
+    </div>
+    <div>
+      <input type="text" [(ngModel)]="pessoa"]>
+      <input type="text" [(ngModel)]="pessoa"]>
+      <p>Meu nome é {{pessoa.nome}} e tenho {{pessoa.idade}} anos</p>
     </div>
   </article>
 </section>
