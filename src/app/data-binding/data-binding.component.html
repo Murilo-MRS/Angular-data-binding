@@ -99,32 +99,4 @@
     </div>
   </article>
 </section>
-
-<section class="two-way-binding">
-  <article>
-    <h3>TWO WAY BINDING</h3>
-    <div>
-      <input
-        type="text"
-        [value]="nome"
-        (input)="nome = eventTarget.value"
-        #eventTarget
-      />
-
-      <input
-        type="text"
-        [ngModel]="nome"
-        (ngModelChange)="nome = $event"
-        #eventTarget
-      />
-
-      <input type="text" [(ngModel)]="nome" />
-      <p>DIGITOU: {{ nome }}</p>
-    </div>
-    <div>
-      <input type="text" [(ngModel)]="pessoa"]>
-      <input type="text" [(ngModel)]="pessoa"]>
-      <p>Meu nome é {{pessoa.nome}} e tenho {{pessoa.idade}} anos</p>
-    </div>
-  </article>
-</section>
+<app-meu-form></app-meu-form>

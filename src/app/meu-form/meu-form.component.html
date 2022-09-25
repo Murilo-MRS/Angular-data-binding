@@ -1,0 +1,29 @@
+<section class="two-way-binding">
+    <article>
+      <h3>TWO WAY BINDING</h3>
+      <div>
+        <input
+          type="text"
+          [value]="nome"
+          (input)="nome = eventTarget.value"
+          #eventTarget
+        />
+  <!-- quando usamos ngModelChange nao precisamos usar target.value -->
+        <input
+          type="text"
+          [ngModel]="nome"
+          (ngModelChange)="nome = $event"
+          #eventTarget
+        />
+  
+        <input type="text" [(ngModel)]="nome" />
+        <p>DIGITOU: {{ nome }}</p>
+      </div>
+      <div>
+        <input type="text" [(ngModel)]="pessoa.nome">
+        <input type="text" [(ngModel)]="pessoa.idade">
+        <p>Meu nome é {{pessoa.nome}} e tenho {{pessoa.idade}} anos</p>
+      </div>
+    </article>
+  </section>
+  
