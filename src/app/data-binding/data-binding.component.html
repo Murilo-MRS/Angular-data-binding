@@ -106,5 +106,9 @@
   <article>
     <h3>INPUT/OUTPUT PROPERTIES</h3>
     <app-curso [nome]="nomeDoCurso"></app-curso>
+<!-- declacramos aqui eventEmitter no componente e no arquivo .ts -->
+    <contador [valor]="valorInicial"
+    (mudouValor)="onMudouValor($event)">
+  </contador>
   </article>
 </section>
