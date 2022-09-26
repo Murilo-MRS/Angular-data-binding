@@ -1,1 +1,5 @@
+<app-ciclo [valorInicial]="valor" *ngIf="!deletarCiclo"></app-ciclo>
+<!-- se mudar o inputproperty, somente o ngOnchanges é disparado -->
+<button (click)="mudarValor()">Mudar Valor</button>
+<button (click)="destruirCiclo()">Deletar</button>
 <app-data-binding></app-data-binding>
