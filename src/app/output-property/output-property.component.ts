@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'contador',
@@ -9,18 +9,24 @@ export class OutputPropertyComponent implements OnInit {
   @Input() valor: number = 0;
 
   @Output() mudouValor = new EventEmitter();
+  /* @ViewChild('campoInput') para usar a variavel declarada localmente no template */
+  @ViewChild('campoInput') campoValorInput!: ElementRef;
   /* para que o componente pai de output property "escute o evento e obtenha o novo valoro" declaramos um
   @Output() nomedeVar = new EventEmitter(); e chamamos dentro da func de evento this.mudouValor.emit({chave: this.novoValor}) */
   incrementa() {
-    this.valor += 1;
+    console.log(this.campoValorInput.nativeElement.value);
+    
+    this.campoValorInput.nativeElement.value++;
     this.mudouValor.emit({ novoValor: this.valor });
   }
   decrementa() {
-    this.valor -= 1;
+    this.campoValorInput.nativeElement.value--;
     this.mudouValor.emit({ novoValor: this.valor });
   }
+  
+  constructor() {
 
-  constructor() {}
-
+  }
+  
   ngOnInit(): void {}
 }
